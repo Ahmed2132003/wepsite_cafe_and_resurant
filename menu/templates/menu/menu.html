@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .card-body {
+            background-color: gold; /* تغيير خلفية عناصر الطلب إلى اللون الذهبي */
+            color: black; /* تغيير لون النص إلى الأبيض */
+        }
+        .restaurant-title {
+            font-size: 2.5rem; /* حجم خط اسم المطعم */
+            font-weight: bold; /* جعل الخط عريض */
+            text-align: center; /* توسيط النص */
+            margin-bottom: 10px; /* مسافة أسفل الاسم */
+        }
+        .menu-title {
+            font-size: 2rem; /* حجم خط كلمة منيو */
+            text-align: center; /* توسيط النص */
+            margin-bottom: 20px; /* مسافة أسفل الكلمة */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="restaurant-title">مطعم وكافيه السلطان</h1> <!-- اسم المطعم -->
+    <h2 class="menu-title">MENU</h2> <!-- عنوان الصفحة -->
+    <a href="{% url 'orders:order_summary' %}">الفاتورة</a>
+
+    <a href="{% url 'accounts:daily_report' %}">العودة إلى التقرير اليومي</a>
+
+    <div class="row">
+        {% for item in menu_items %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text">Price: ${{ item.price }}</p>
+
+                        <!-- نموذج لطلب المنتج -->
+                        <form method="POST" action="{% url 'orders:order_summary_with_item' item.id %}">
+                            {% csrf_token %}
+                            {{ order_form.as_p }}
+                            <button type="submit" class="btn btn-light">Add to Order</button>
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- إضافة مكتبات JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

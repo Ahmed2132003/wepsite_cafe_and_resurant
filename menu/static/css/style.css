@@ -1,0 +1,100 @@
+/* تنسيق الجسم */
+body {
+    background-color: black; /* خلفية سوداء */
+    color: white; /* نصوص بيضاء */
+    font-family: Arial, sans-serif; /* خط افتراضي */
+    margin: 0;
+    padding: 0;
+}
+
+/* تنسيق العناوين */
+h1, h3 {
+    color: gold; /* عناوين ذهبية */
+}
+
+/* تنسيق العناصر في القائمة */
+.list-group-item {
+    background-color: #222; /* لون خلفية العناصر */
+    border: 1px solid #444; /* حدود خفيفة */
+}
+
+/* تنسيق الزر */
+.btn-primary {
+    background-color: purple; /* لون زر بنفسجي */
+    border: none; /* إزالة الحدود */
+    color: white; /* نص الزر أبيض */
+    padding: 10px 20px; /* حشوة الزر */
+    border-radius: 5px; /* زوايا دائرية */
+    transition: background-color 0.3s; /* تأثير الانتقال */
+}
+
+.btn-primary:hover {
+    background-color: darkviolet; /* لون الزر عند التمرير */
+}
+
+/* تنسيق حقل الإدخال */
+.form-control {
+    background-color: #333; /* خلفية حقل الإدخال */
+    color: white; /* نص حقل الإدخال أبيض */
+    border: 1px solid #444; /* حدود حقل الإدخال */
+}
+
+.form-control::placeholder {
+    color: #aaa; /* لون النص في حقل الإدخال */
+}
+
+/* تنسيق الحاوية التي تحتوي على المنتجات */
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;  /* يسمح بانتقال العناصر إلى السطر التالي عند الحاجة */
+    gap: 20px; /* المسافة بين العناصر */
+    justify-content: space-around; /* توزيع المنتجات بشكل متساوٍ */
+    padding: 20px;
+}
+
+/* تنسيق كل منتج */
+.menu-item {
+    flex: 1 1 calc(33.333% - 20px); /* عرض كل منتج يمثل ثلث المساحة مع المسافة */
+    box-sizing: border-box; /* تضمين الحواف داخل الحجم */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #333; /* خلفية المنتجات باللون الرمادي الداكن */
+    color: white; /* نصوص بيضاء */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* تأثير التكبير عند التمرير */
+}
+
+.menu-item:hover {
+    transform: scale(1.05); /* تكبير المنتج قليلاً عند التمرير */
+}
+
+/* تنسيق العنوان داخل المنتج */
+.menu-item h3 {
+    font-size: 1.5em;
+    color: gold; /* لون العنوان الذهبي */
+}
+
+/* تنسيق الوصف داخل المنتج */
+.menu-item p {
+    font-size: 1em;
+    color: #ccc; /* لون النص الفاتح */
+}
+
+/* تنسيق زر إضافة للطلب */
+.menu-item button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* لون زر إضافة للطلب */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+/* تغيير لون الزر عند التمرير */
+.menu-item button:hover {
+    background-color: #45a049; /* تظليل عند المرور بالماوس */
+}

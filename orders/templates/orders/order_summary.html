@@ -1,0 +1,44 @@
+<!-- templates/orders/order_summary.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">INVOICE</h1> <!-- عنوان الصفحة -->
+    
+    {% if order_items %}
+        <ul class="list-group mb-4">
+            {% for item in order_items %}
+                <li class="list-group-item">
+                    {{ item.menu_item.name }} - الكمية: {{ item.quantity }} - المجموع: ${{ item.get_cost }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="h5">إجمالي السعر: ${{ order.total_price }}</p>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">تأكيد الطلب</button>
+            <a href="{% url 'menu' %}">العودة إلى القائمة</a>.</p>
+            <a href="{% url 'accounts:daily_report' %}">العودة إلى التقرير اليومي</a>
+
+
+        </form>
+    {% else %}
+        <p>طلبك فارغ. <a href="{% url 'menu' %}">العودة إلى القائمة</a>.</p>
+    {% endif %}
+</div>
+
+<!-- إضافة مكتبات JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

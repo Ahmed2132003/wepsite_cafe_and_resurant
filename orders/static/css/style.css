@@ -1,0 +1,39 @@
+/* style.css */
+
+body {
+    background-color: black; /* خلفية سوداء */
+    color: white; /* نصوص بيضاء */
+    font-family: Arial, sans-serif; /* خط افتراضي */
+}
+
+h1, h3 {
+    color: gold; /* عناوين ذهبية */
+}
+
+.list-group-item {
+    background-color: #222; /* لون خلفية العناصر */
+    border: 1px solid #444; /* حدود خفيفة */
+}
+
+.btn-primary {
+    background-color: purple; /* لون زر بنفسجي */
+    border: none; /* إزالة الحدود */
+    color: white; /* نص الزر أبيض */
+    padding: 10px 20px; /* حشوة الزر */
+    border-radius: 5px; /* زوايا دائرية */
+    transition: background-color 0.3s; /* تأثير الانتقال */
+}
+
+.btn-primary:hover {
+    background-color: darkviolet; /* لون الزر عند التمرير */
+}
+
+.form-control {
+    background-color: #333; /* خلفية حقل الإدخال */
+    color: white; /* نص حقل الإدخال أبيض */
+    border: 1px solid #444; /* حدود حقل الإدخال */
+}
+
+.form-control::placeholder {
+    color: #aaa; /* لون النص في حقل الإدخال */
+}

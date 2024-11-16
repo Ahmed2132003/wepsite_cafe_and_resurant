@@ -1,0 +1,30 @@
+<!-- templates/accounts/add_expense.html -->
+{% load static %}  <!-- تحميل مكتبة static -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إضافة مصاريف</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- إضافة الاستايل المخصص -->
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">إضافة مصاريف جديدة</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- عرض النموذج -->
+        <button type="submit" class="btn btn-primary">إضافة مصاريف</button>
+    </form>
+    <p class="mt-3"><a href="{% url 'accounts:daily_report' %}">العودة إلى التقرير اليومي</a></p>
+</div>
+
+<!-- إضافة مكتبات JavaScript في نهاية الجسم -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

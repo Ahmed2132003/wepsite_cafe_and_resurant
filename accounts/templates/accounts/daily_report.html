@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">   
+    <head>
+        <meta charset="UTF-8">
+        <title>Daily Report </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    </head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Daily Sales and Expenses Report</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Total Sales</h3>
+                <p>${{ total_sales }}</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Total Expenses</h3>
+                <p>${{ total_expenses }}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Profit</h3>
+                <p>${{ profit }}</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Total Orders</h3>
+                <p>{{ total_orders }} orders</p>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{% url 'menu' %}" class="btn btn-primary">Go to Menu</a>
+            <a href="{% url 'accounts:add_expense' %}" class="btn btn-primary">Add Expense</a>
+        </div>
+    </div>
+</body>
+</html>
